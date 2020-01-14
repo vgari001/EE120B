@@ -23,14 +23,17 @@ int main(void) {
 	unsigned char PINB0 = 0x00;	
 	unsigned char i=0x00;
 	unsigned char counter = 0x00;
+	unsigned char tempA = 0x00;
+	unsigned char tempB = 0x00;
     /* Insert your solution below */
     while (1) {
 	
- 
+	 
        PINA0 = PINA & 0x01;
        PINB0 = PINB & 0x01;
 	counter =  0;
-
+	tempA = PINA0;
+	tempB = PINAB0;
 	for(i=0; i<8; ++i){
 		
 		if(PINA0  == 0x01){
@@ -38,13 +41,13 @@ int main(void) {
 			counter++;
 		
 		}
-	PORTA>>1;
+	tempA =	PINA0>>1;
 
 		if(PINB0 == 0x01){
 		counter++;
 		}
 
-	PORTB>>1;
+	tempBm = PINB0>>1;
 
     }
  }
