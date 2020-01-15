@@ -33,11 +33,11 @@ continue 2
 expectPORTC 0x00
 checkResult
 
-test “PORTA:FF, PORTB:FF, PORTC: 16”
-setPINA 0xFF
+test “PORTA:01, PORTB:01, PORTC: 2”
+setPINA 0x01
 setPINB 0x01
 continue 2
-expectPORTC 
+expectPORTC 0x02
 checkResult 
 
 test “PORTA:0F, PORTB:03, PORTC 6”
