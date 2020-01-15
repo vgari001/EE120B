@@ -19,8 +19,8 @@ int main(void) {
 	DDRB = 0x00; PORTB = 0xFF;
 	DDRC = 0xFF ; PORTC = 0x00;
 
-      unsigned char PINA0  = 0x00;
-	unsigned char PINB0 = 0x00;	
+        unsigned char PENA0  = 0x00;
+	unsigned char PENB0 = 0x00;	
 	unsigned char i=0x00;
 	unsigned char counter = 0x00;
 	unsigned char tempA = 0x00;
@@ -29,27 +29,28 @@ int main(void) {
     while (1) {
 	
 	 
-       PINA0 = PINA & 0x01;
-       PINB0 = PINB & 0x01;
+       PENA0 = PINA & 0x01;
+       PENB0 = PINA & 0x01;
 	counter =  0;
-	tempA = PINA0;
-	tempB = PINAB0;
+	tempA = PENA0;
+	tempB = PENB0;
 	for(i=0; i<8; ++i){
 		
-		if(PINA0  == 0x01){
+		if(tempA  == 0x01){
 
 			counter++;
 		
 		}
-	tempA =	PINA0>>1;
+	tempA =	PENA0>>1;
 
-		if(PINB0 == 0x01){
+		if(tempB == 0x01){
 		counter++;
 		}
 
-	tempBm = PINB0>>1;
+	tempB = PENB0>>1;
 
     }
+      PORTC= counter;
  }
     return 1;
 }
