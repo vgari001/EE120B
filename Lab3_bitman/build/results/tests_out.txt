@@ -1,0 +1,8 @@
+Breakpoint 1 at 0xee: file source/main.c, line 30.
+Note: automatically using hardware breakpoints for read-only addresses.
+======================================================
+Running all tests..."
+
+“PORTA:00,...“PORTA:FF,...test/tests.gdb:40: Error in sourced command file:
+Missing argument 0 in user function.
+Quitting: Remote doesn't know how to detach
