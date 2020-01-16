@@ -1,0 +1,13 @@
+Breakpoint 1 at 0x1a4: file source/main.c, line 78.
+Note: automatically using hardware breakpoints for read-only addresses.
+======================================================
+Running all tests..."
+
+"INIT -> A0: 0x00, PORTB = 0x01"..."INIT -> A0: 0x01, PORTB = 0x02"...
+	Expected 0x02 
+	PORTB '0x800025:	0x01
+"BOFF ->A0: 0x00, PORTB = 0x01"..."BOFF ->A0: 0x01, PORTB = 0x02"...
+	Expected 0x02 
+	PORTB '0x800025:	0x01
+======================================================
+Quitting: Remote doesn't know how to detach
