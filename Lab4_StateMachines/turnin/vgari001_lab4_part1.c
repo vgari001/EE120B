@@ -14,10 +14,12 @@
 #define A0 PINA & 0x001
  enum LED_States{ START, INIT, BOFF} LED_STATE;
 
-unsigned char tempB = 0x00;
+	unsigned char tempB = 0x00;
 
 void LED_Tick(){
 	
+	tempB = PINB;
+
 	switch(LED_STATE){
 		
 		case START:
@@ -49,7 +51,7 @@ void LED_Tick(){
 	}
 	
 	switch(LED_STATE){
-                         tempB = PINB;
+                         
 				case START:
 				break;
 			
@@ -70,9 +72,10 @@ void LED_Tick(){
 	
 
 int main(void) {
-    
+	
 	DDRA = 0x00; PORTA = 0xFF;
 	DDRB = 0xFF; PORTB = 0x00;
+	    
 	LED_STATE = START;
     /* Insert your solution below */
     while (1) {

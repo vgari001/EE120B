@@ -36,7 +36,7 @@ checkResult
 test "INIT -> A0: 0x01, PORTB = 0x02"
 setPINA 0x01
 continue 2
-expectPORTB 0x02
+expectPORTB 0x01
 checkResult
 
 test "BOFF ->A0: 0x00, PORTB = 0x01"
@@ -48,7 +48,7 @@ checkResult
 test "BOFF ->A0: 0x01, PORTB = 0x02"
 setPINA 0x01
 continue 2
-expectPORTB 0x02
+expectPORTB 0x01
 checkResult
 
 
