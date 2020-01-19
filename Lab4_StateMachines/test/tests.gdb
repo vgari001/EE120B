@@ -27,30 +27,78 @@ echo ======================================================\n
 echo Running all tests..."\n\n
 
 
-test"A0: 0x00, A1:0x00, PORTC = 0x07"
-setPINA 0x00
+test "PINA: 0x01, 0x01 -> PORTC: 0x09"
+set  C_STATE  = START
+setPINA 0x01
 continue 2
-expectPORTC 0x07
+setPINA 0x01
+continue 2
+expectPORTC 0x09
 checkResult
 
-test " A0: 0x01, A1: 0x00, PORTC = 0x08"
+test "PINA: 0x02, 0x01 -> PORTC: 0x08"
+set  C_STATE  = START
+setPINA 0x02
+continue 2
 setPINA 0x01
 continue 2
 expectPORTC 0x08
 checkResult
 
-test "A0: 0x00,A1: 0x01,  PORTC = 0x06"
+
+test "PINA: 0x01, 0x02, 0x00 -> PORTC: 0x00"
+set  C_STATE  = START
+setPINA 0x01
+continue 2
 setPINA 0x02
 continue 2
-expectPORTC 0x06
-checkResult
-
-test "A0: 0x01,A1: 0x01, PORTC = 0x00"
-setPINA 0x03
+setPINA 0x00
 continue 2
 expectPORTC 0x00
 checkResult
 
+
+test "PINA: 0x02, 0x02, 0x01 -> PORTC: 0x06"
+set  C_STATE  = START
+setPINA 0x02
+continue 2
+setPINA 0x02
+continue 2
+setPINA 0x01
+continue 2
+expectPORTC 0x06
+checkResult
+
+
+test "PINA: 0x00, 0x01, 0x02 -> PORTC: 0x00"
+set  C_STATE  = START
+setPINA 0x00
+continue 2
+setPINA 0x01
+continue 2
+setPINA 0x02
+continue 2
+expectPORTC 0x00
+checkResult
+
+
+
+test "PINA: 0x02, 0x02, 0x02, 0x01, 0x01, 0x02 -> PORTC: 0x05"
+set  C_STATE  = START
+setPINA 0x02
+continue 2
+setPINA 0x02
+continue 2
+setPINA 0x02
+continue 2
+setPINA 0x01
+continue 2
+setPINA 0x01
+continue 2
+setPINA 0x02
+continue
+expectPORTC 0x05
+checkResult
 
 
 set $passed=$tests-$failed
