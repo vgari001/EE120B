@@ -27,29 +27,19 @@ echo ======================================================\n
 echo Running all tests..."\n\n
 
 
-test "PINA: 0x01, 0x01 -> PORTC: 0x09"
-set  C_STATE  = START
-setPINA 0x01
+test "PINA: 0x04, 0x00, 0x02 -> PORTC: 0x01"
+set  LOCK_STATE  = START
+setPINA 0x04
 continue 2
-setPINA 0x01
+setPINA 0x00
 continue 2
-expectPORTC 0x09
-checkResult
-
-test "PINA: 0x02, 0x01 -> PORTC: 0x08"
-set  C_STATE  = START
 setPINA 0x02
 continue 2
-setPINA 0x01
-continue 2
-expectPORTC 0x08
+expectPORTC 0x01
 checkResult
 
-
-test "PINA: 0x01, 0x02, 0x00 -> PORTC: 0x00"
-set  C_STATE  = START
-setPINA 0x01
-continue 2
+test "PINA: 0x02, 0x00 -> PORTC: 0x00"
+set  LOCK_STATE  = START
 setPINA 0x02
 continue 2
 setPINA 0x00
@@ -58,23 +48,13 @@ expectPORTC 0x00
 checkResult
 
 
-test "PINA: 0x02, 0x02, 0x01 -> PORTC: 0x06"
+test "PINA: 0x04, 0x02, 0x04, 0x02 -> PORTC: 0x00"
 set  C_STATE  = START
+setPINA 0x04
+continue 2
 setPINA 0x02
 continue 2
-setPINA 0x02
-continue 2
-setPINA 0x01
-continue 2
-expectPORTC 0x06
-checkResult
-
-
-test "PINA: 0x00, 0x01, 0x02 -> PORTC: 0x00"
-set  C_STATE  = START
-setPINA 0x00
-continue 2
-setPINA 0x01
+setPINA 0x04
 continue 2
 setPINA 0x02
 continue 2
@@ -82,22 +62,38 @@ expectPORTC 0x00
 checkResult
 
 
+test "PINA: 0x00, 0x02, 0x00, 0x04, 0x04 -> PORTC: 0x00"
+set  C_STATE  = START
+setPINA 0x00
+continue 2
+setPINA 0x02
+continue 2
+setPINA 0x00
+continue 2
+setPINA 0x04
+continue 2
+setPINA 0x04
+continue 2
+expectPORTC 0x00
+checkResult
 
-test "PINA: 0x02, 0x02, 0x02, 0x01, 0x01, 0x02 -> PORTC: 0x05"
+
+
+test "PINA: 0x02, 0x00, 0x04, 0x04, 0x00, 0x02 -> PORTC: 0x01"
 set  C_STATE  = START
 setPINA 0x02
 continue 2
-setPINA 0x02
+setPINA 0x00
 continue 2
-setPINA 0x02
+setPINA 0x04
 continue 2
-setPINA 0x01
+setPINA 0x04
 continue 2
-setPINA 0x01
+setPINA 0x00
 continue 2
 setPINA 0x02
 continue
-expectPORTC 0x05
+expectPORTC 0x01
 checkResult
 
 
